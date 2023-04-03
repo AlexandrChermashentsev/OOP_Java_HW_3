@@ -29,6 +29,7 @@ public class Main {
         Comparator<NoteBook> coastComparator = new coastComporator();
         Collections.sort(arrListNotebook, coastComparator);
         getInfoList(arrListNotebook);
+
         System.out.println("По убыванию цены");
         coastComparator = (n1, n2) -> n2.getCoast() - n1.getCoast();
         Collections.sort(arrListNotebook, coastComparator);
@@ -39,6 +40,16 @@ public class Main {
         Collections.sort(arrListNotebook, ramComporator_v2);
         getInfoList(arrListNotebook);
 
+        System.out.println("По алфавиту");
+        nameComporator nameComporator = new nameComporator();
+        Collections.sort(arrListNotebook, nameComporator);
+        getInfoList(arrListNotebook);
+
+        System.out.println("По алфавиту по убыванию");
+        Comparator<NoteBook> nameReverseComparator = (n1, n2) -> n2.getNameCompanyNotebook().compareTo(n1.getNameCompanyNotebook());
+        Collections.sort(arrListNotebook, nameReverseComparator);
+        getInfoList(arrListNotebook);
+        
     }
 
     public static void getInfoList(ArrayList<NoteBook> lst){
